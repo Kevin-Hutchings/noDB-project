@@ -2,3 +2,46 @@ body {
   margin: 0;
   background-color: grey;
 }
+
+.app {
+  border: 1px solid purple;
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-evenly;
+  height: 90vh;
+  padding: 5px;
+}
+
+.puzzle {
+  border: 1px solid white;
+  width: 20vw;
+  height: 40vh;
+  display: flex;
+  flex-flow: column wrap;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.puzzleDisplay {
+  border: 1px solid black;
+  padding: 10px;
+  width: 75vw;
+  height: 90vh;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-around
+}
+
+.puzzle-img {
+  height: 45%;
+}
+
+.add-component {
+  border: 1px solid blue;
+  width: 20vw;
+  height: 45vh;
+  display: flex;
+  flex-flow: column wrap;
+  align-content: center;
+  justify-content: space-evenly
+}

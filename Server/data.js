@@ -1,7 +1,7 @@
 const data = [
    {
       id: 1,
-      img: 'https://upload.wikimedia.org/wikipedia/commons/thumb/6/61/Rubiks_cube_solved.jpg/220px-Rubiks_cube_solved.jpg',
+      img: 'https://upload.wikimedia.org/wikipedia/commons/thumb/6/61/Rubiks_cube_solved.jpg/110px-Rubiks_cube_solved.jpg',
       shape: 'Cube',
       difficulty: 'Easy',
       solved: false
@@ -43,4 +43,6 @@ const data = [
    },
 ]
 
-export default data;
+module.exports = {
+   data
+}

@@ -1,42 +1,32 @@
-// import React, { Component } from 'react';
+import React, { Component } from 'react';
 
-// export default class Puzzle extends Component {
-//    constructor(props){
-//       super(props);
+export default class Puzzle extends Component {
+   constructor(props){
+      super(props);
 
-//       this.state = {
-//          userInput: {},
-//       }
-//    }
+      this.state = {
+         userInput: {},
+      }
+   }
 
-//    render(){
-//       const mappedPuzzles = data.map((puzzle) => {
-//          return(
-//             <div>
-//                <img src={puzzle.img} alt='Puzzle' />
-//                <h3> {puzzle.shape} {puzzle.difficulty} </h3>
-//             </div>
-//          )
-//       })
-//       return(
-//          <div> {mappedPuzzles} </div>
-//       )
-//    }
-// }
+   render(){
+      const { data } = this.props;
+      const mappedPuzzles = data.map((puzzle) => {
+         return(
+            <div className="puzzle">
+               <img className="puzzle-img" src={puzzle.img} alt='Puzzle' />
+               <h3 className="puzzle-text"> Shape: {puzzle.shape} Difficulty: {puzzle.difficulty}</h3>
+               <input placeholder="Edit Difficulty" /><input placeholder="Solved/Unsolved" />
+               <div className="buttons">
+                  <button> Edit </button> 
+                  <button> Destroy </button>
+               </div>
+            </div>
+         )
+      });
 
-import React from 'react';
-
-export default function Puzzle ({data}){
-   const mappedPuzzles = data.map((puzzle) => {
-      return (
-         <div>
-            <img src={puzzle.img} alt='Puzzle' />
-            <h3> Shape: {puzzle.shape} Difficulty: {puzzle.difficulty} </h3>
-         </div>
+      return(
+         <div className='puzzleDisplay'> {mappedPuzzles} </div>
       )
-   });
-
-   return (
-      <div> {mappedPuzzles} </div>
-   )
+   }
 }

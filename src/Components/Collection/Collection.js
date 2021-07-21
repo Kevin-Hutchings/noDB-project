@@ -1,8 +1,10 @@
 import React from 'react';
-import Puzzle from '../Puzzle/Puzzle';
+import Puzzle from '../Puzzle/Puzzle.js'
 
 export default function Collection ({data}){
    return (
-      <Puzzle data={data} />
+      <div>
+         <Puzzle data={data} />
+      </div>
    );
 }

@@ -1,22 +1,36 @@
 import React, { Component } from "react";
-import data from './data.js';
+import axios from "axios";
+import './index.css'
+//components
 import Collection from "./Components/Collection/Collection";
+import Header from "./Components/Header/Header";
+import Add from './Components/Add/Add';
 
 export default class App extends Component {
   constructor() {
     super();
 
     this.state = {
-      puzzles: data,
-      collection: []
+      puzzles: [],
     };
+  }
+
+  componentDidMount() {
+    axios.get('/api/puzzles')
+    .then(({ data }) => this.setState({ puzzles: data.data }))
+    // .then((res) => console.log(res.data.data))
+    .catch((err) => console.log(err.code))
   }
 
   render() {
     const { puzzles } = this.state;
     return (
       <div>
-        <Collection data={puzzles} />
+        <Header />
+        <section className="app">
+          <Collection data={ puzzles } /> 
+          <Add />
+        </section>
       </div>
     )
   };
