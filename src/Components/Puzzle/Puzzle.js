@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import axios from 'axios';
 
 export default class Puzzle extends Component {
    constructor(props){
@@ -7,6 +8,14 @@ export default class Puzzle extends Component {
       this.state = {
          userInput: {},
       }
+
+      this.destroy = this.destroy.bind(this);
+   }
+
+   destroy(id){
+      axios.delete(`/api/puzzles/${id}`)
+      .then(({ data }) => this.setState({ puzzles: data.data }))
+      .catch((err) => console.log(err.code))
    }
 
    render(){
@@ -19,7 +28,7 @@ export default class Puzzle extends Component {
                <input placeholder="Edit Difficulty" /><input placeholder="Solved/Unsolved" />
                <div className="buttons">
                   <button> Edit </button> 
-                  <button> Destroy </button>
+                  <button onClick={() => this.destroy(puzzle.id)}> Destroy </button>
                </div>
             </div>
          )
