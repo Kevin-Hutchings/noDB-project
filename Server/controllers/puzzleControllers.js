@@ -11,6 +11,16 @@ function addPuzzle(req, res){
    res.status(200).json(puzzles)
 }
 
+function editPuzzle(req, res){
+   const { difficulty, solved } = req.body;
+   const { id } = req.params;
+
+   const index = puzzles.findIndex((el) => el.id === +id);
+   puzzles[index].difficulty = difficulty;
+   puzzles[index].solved = solved;
+   res.status(200).json(puzzles)
+}
+
 function deletePuzzle(req, res){
    const { id } = req.params
    const index = puzzles.findIndex((el) => el.id === +id)
@@ -21,5 +31,6 @@ function deletePuzzle(req, res){
 module.exports = {
    getPuzzle,
    addPuzzle,
+   editPuzzle,
    deletePuzzle,
 }

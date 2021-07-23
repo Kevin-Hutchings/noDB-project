@@ -36,13 +36,14 @@ export default class Add extends Component {
          id,
          img,
          shape,
-         difficulty
+         difficulty,
       }
 
       id++
 
       axios.post('/api/puzzles', newPuzzle)
-      .then((res) => this.props.updatePuzzles(res.data))
+      // .then((res) => console.log(res.data))
+      .then((res) => this.props.updateAddPuzzle(res.data))
       .catch((err) => console.log(err.code))
    }
 
