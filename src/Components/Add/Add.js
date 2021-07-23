@@ -50,9 +50,9 @@ export default class Add extends Component {
       return(
          <section className="add-component">
             <h1> Add Puzzle </h1>
-            <input placeholder="Image URL" onChange={this.handleImgInput}></input>
-            <input placeholder="Shape" onChange={this.handleShapeInput}></input>
-            <input placeholder="Difficulty" onChange={this.handleDifficultyInput}></input>
+            <input placeholder="Image URL" onChange={this.handleImgInput} />
+            <input placeholder="Shape" onChange={this.handleShapeInput} />
+            <input placeholder="Difficulty" onChange={this.handleDifficultyInput} />
             <button onClick={this.addNewPuzzle}> Add </button>
          </section>
       )

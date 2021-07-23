@@ -2,7 +2,7 @@ const data = require('../data')
 const puzzles = [...data.data]
 
 function getPuzzle(req, res){
-   res.status(200).json(data)
+   res.status(200).json(puzzles)
 }
 
 function addPuzzle(req, res){

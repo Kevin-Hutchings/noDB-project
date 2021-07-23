@@ -3,6 +3,20 @@ body {
   background-color: grey;
 }
 
+.header {
+  display: flex;
+  flex-direction: row;
+  width: 80vw;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
+  left: 5%;
+}
+
+.reset-button {
+  height: 20px;
+}
+
 .app {
   border: 1px solid purple;
   display: flex;

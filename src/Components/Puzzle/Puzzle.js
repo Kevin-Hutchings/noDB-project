@@ -8,18 +8,10 @@ export default class Puzzle extends Component {
       this.state = {
          userInput: {},
       }
-
-      this.destroy = this.destroy.bind(this);
-   }
-
-   destroy(id){
-      axios.delete(`/api/puzzles/${id}`)
-      .then(({ data }) => this.setState({ puzzles: data.data }))
-      .catch((err) => console.log(err.code))
    }
 
    render(){
-      const { data } = this.props;
+      const { data, destroy } = this.props;
       const mappedPuzzles = data.map((puzzle) => {
          return(
             <div className="puzzle">
@@ -28,7 +20,7 @@ export default class Puzzle extends Component {
                <input placeholder="Edit Difficulty" /><input placeholder="Solved/Unsolved" />
                <div className="buttons">
                   <button> Edit </button> 
-                  <button onClick={() => this.destroy(puzzle.id)}> Destroy </button>
+                  <button onClick={() => destroy(puzzle.id)}> Destroy </button>
                </div>
             </div>
          )

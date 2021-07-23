@@ -15,12 +15,13 @@ export default class App extends Component {
     };
 
     this.updatePuzzles = this.updatePuzzles.bind(this);
-    // this.destroy = this.destroy.bind(this);
+    this.destroy = this.destroy.bind(this);
+    this.reset = this.reset.bind(this);
   }
 
   componentDidMount() {
     axios.get('/api/puzzles')
-    .then(({ data }) => this.setState({ puzzles: data.data }))
+    .then(({ data }) => this.setState({ puzzles: data }))
     .catch((err) => console.log(err.code))
   }
 
@@ -28,19 +29,25 @@ export default class App extends Component {
     this.setState({ puzzles })
   }
 
-  // destroy(id){
-  //   axios.delete(`/api/puzzles/${id}`)
-  //   .then(({ data }) => this.setState({ puzzles: data.data }))
-  //   .catch((err) => console.log(err.code))
-  // }
+  destroy(id){
+    axios.delete(`/api/puzzles/${id}`)
+    .then(({ data }) => this.setState({ puzzles: data }))
+    .catch((err) => console.log(err.code))
+ }
+
+  reset(){
+    axios.get('/api/puzzles')
+    .then(({ data }) => this.setState({ puzzles: data }))
+    .catch((err) => console.log(err.code))
+  }
 
   render() {
     const { puzzles } = this.state;
     return (
       <div>
-        <Header />
+        <Header reset={this.reset} />
         <section className="app">
-          <Collection data={ puzzles } /> 
+          <Collection data={ puzzles } destroy={this.destroy}/> 
           <Add updatePuzzles={this.updatePuzzles} />
         </section>
       </div>

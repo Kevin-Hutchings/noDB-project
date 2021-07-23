@@ -1,8 +1,11 @@
 import React from 'react';
 import './Header.css'
 
-export default function Header() {
+export default function Header({reset}) {
    return (
-      <h1 className="header"> Puzzle Collection </h1>
+      <div className="header">
+         <h1> Puzzle Collection </h1>
+         <button className="reset-button" onClick={() => reset()}> Reset </button>
+      </div>
    );
 }
