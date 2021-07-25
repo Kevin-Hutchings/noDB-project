@@ -7,14 +7,12 @@ export default class Puzzle extends Component {
 
       this.state = {
          difficulty: '',
-         solved: false,
-         input: '',
-      }
+         solved: 'false',
+      };
 
       this.editPuzzleValue = this.editPuzzleValue.bind(this);
       this.handleDifficulty = this.handleDifficulty.bind(this);
       this.handleSolved = this.handleSolved.bind(this);
-      this.handleClear = this.handleClear.bind(this);
    }
    
    editPuzzleValue(id){
@@ -29,33 +27,26 @@ export default class Puzzle extends Component {
       // .then((res) => console.log(res.data))
       .catch((err) => console.log(err.code))
 
-      // this.handleClear()
+      this.setState({difficulty: ''})
    }
 
    handleDifficulty(e){
-      this.setState({ difficulty: e.target.value })
+      this.setState({ difficulty: e.target.value });
    }
 
    handleSolved(e){
-      this.setState({ solved: e.target.value })
-   }
-
-   handleClear(){
-      this.setState({ 
-         difficulty: '',
-         solved: ''
-      })
+      this.setState({ solved: e.target.value });
    }
 
    render(){
       const { data, destroy } = this.props;
       const mappedPuzzles = data.map((puzzle) => {
          return(
-            <div className="puzzle">
+            <div className={puzzle.solved.includes('true') ? 'puzzle-solved' : 'puzzle-unsolved'}>
                <img className="puzzle-img" src={puzzle.img} alt='Puzzle' />
                <h3 className="puzzle-text"> Shape: {puzzle.shape} Difficulty: {puzzle.difficulty}</h3>
                <input placeholder="Edit Difficulty" onChange={this.handleDifficulty} />
-               <input placeholder="Solved/Unsolved" onChange={this.handleSolved} />
+               <input placeholder="Solved? true or false" onChange={this.handleSolved} />
                <div className="buttons">
                   <button onClick={() => this.editPuzzleValue(puzzle.id)}> Edit </button> 
                   <button onClick={() => destroy(puzzle.id)}> Destroy </button>

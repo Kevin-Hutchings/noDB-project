@@ -40,8 +40,14 @@ export default class App extends Component {
     const { puzzles } = this.state;
 
     const filteredPuzzles = puzzles.filter((puzzle) => {
-      return puzzle.shape.toLowerCase().includes(input.toLowerCase()) || puzzle.difficulty.toLowerCase().includes(input.toLowerCase())
+      let inputCase = (input.toLowerCase())
+      let shape = puzzle.shape.toLowerCase().includes(inputCase)
+      let difficulty = puzzle.difficulty.toLowerCase().includes(inputCase)
+      let solved = puzzle.solved.toLowerCase().includes(inputCase)
+      
+      return shape || difficulty || solved
     });
+
     this.setState({ puzzles: filteredPuzzles })
   }
 

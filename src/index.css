@@ -1,6 +1,6 @@
 body {
   margin: 0;
-  background-color: grey;
+  background-color: rgb(100, 100, 100);
 }
 
 .header {
@@ -10,7 +10,7 @@ body {
   justify-content: space-between;
   align-items: center;
   position: relative;
-  left: 5%;
+  left: 7%;
 }
 
 .reset-button {
@@ -18,7 +18,7 @@ body {
 }
 
 .app {
-  border: 1px solid purple;
+  box-shadow: 0px -4px 3px 0px rgba(0,0,0,0.44);
   display: flex;
   flex-flow: row nowrap;
   justify-content: space-evenly;
@@ -26,8 +26,21 @@ body {
   padding: 5px;
 }
 
-.puzzle {
-  border: 1px solid white;
+.puzzle-unsolved {
+  background-color: rgb(126, 126, 126);
+  box-shadow: inset 0px 0px 10px 5px #000000;
+  padding: 1%;
+  width: 20vw;
+  height: 40vh;
+  display: flex;
+  flex-flow: column wrap;
+  align-items: center;
+  justify-content: space-around;
+}
+.puzzle-solved {
+  background-color: rgb(126, 126, 126);
+  box-shadow: inset 0px 0px 10px 5px #398a86;
+  padding: 1%;
   width: 20vw;
   height: 40vh;
   display: flex;
@@ -37,13 +50,12 @@ body {
 }
 
 .puzzleDisplay {
-  border: 1px solid black;
   padding: 10px;
   width: 75vw;
   height: 90vh;
   display: flex;
   flex-flow: row wrap;
-  justify-content: space-around
+  justify-content: space-evenly;
 }
 
 .puzzle-img {
@@ -51,11 +63,15 @@ body {
 }
 
 .add-component {
-  border: 1px solid blue;
+  background-color: rgb(126, 126, 126);
+  box-shadow: inset 0px 0px 10px 5px #000000;
   width: 20vw;
-  height: 45vh;
+  height: 40vh;
   display: flex;
   flex-flow: column wrap;
-  align-content: center;
-  justify-content: space-evenly
+  align-items: center;
+  justify-content: space-evenly;
+  position: relative;
+  right: 1%;
+  top: 25%;
 }
