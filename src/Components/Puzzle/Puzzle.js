@@ -58,10 +58,14 @@ export default class Puzzle extends Component {
                   <h3> Difficulty: {puzzle.difficulty} </h3>
                </section>
                <section className="edit-puzzle">
-                  <input className="input" placeholder="Edit Difficulty" onChange={this.handleDifficulty} />
-                  <button className="button" onClick={this.handleSolved}> Solved! </button>
+                  <input 
+                     className="input" 
+                     placeholder="Edit Difficulty"
+                     value={this.state.difficulty}
+                     onChange={this.handleDifficulty} />
                   <button className="button" onClick={() => this.handleSubmit(puzzle.id)}> Edit </button> 
-                  <button className="button" onClick={() => destroy(puzzle.id)}> Destroy </button>
+                  <button className="button" onClick={this.handleSolved}> Solved! :D </button>
+                  <button className="button" onClick={() => destroy(puzzle.id)}> Destroy? D: </button>
                </section>
             </div>
          )

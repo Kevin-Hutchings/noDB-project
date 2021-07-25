@@ -16,8 +16,13 @@ function editPuzzle(req, res){
    const { id } = req.params;
 
    const index = puzzles.findIndex((el) => el.id === id);
-   puzzles[index].difficulty = difficulty;
-   puzzles[index].solved = solved;
+
+   if(puzzles[index].difficulty !== difficulty && difficulty !== ''){
+      [...puzzles, puzzles[index].difficulty = difficulty]
+   } else if(puzzles[index].solved !== solved){
+      [...puzzles, puzzles[index].solved = solved]
+   }
+
    res.status(200).json(puzzles)
 }
 
