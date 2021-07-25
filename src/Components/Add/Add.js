@@ -1,9 +1,10 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 import { v4 as uuidv4 } from 'uuid';
+import './Add.css'
 
 export default class Add extends Component {
-   constructor(props){
+   constructor(props) {
       super(props);
 
       this.state = {
@@ -15,21 +16,23 @@ export default class Add extends Component {
       this.handleImgInput = this.handleImgInput.bind(this);
       this.handleShapeInput = this.handleShapeInput.bind(this);
       this.handleDifficultyInput = this.handleDifficultyInput.bind(this);
+      this.addNewPuzzle = this.addNewPuzzle.bind(this);
    }
 
-   handleImgInput(e){
+   handleImgInput(e) {
       this.setState({img: e.target.value})
    }
 
-   handleShapeInput(e){
+   handleShapeInput(e) {
       this.setState({shape: e.target.value})
    }
 
-   handleDifficultyInput(e){
+   handleDifficultyInput(e) {
       this.setState({difficulty: e.target.value})
    }
 
-   addNewPuzzle = () => {
+   addNewPuzzle(e) {
+      e.preventDefault();
       const { img, shape, difficulty } = this.state;
       const newPuzzle = { 
          id: uuidv4(),
@@ -38,6 +41,7 @@ export default class Add extends Component {
          difficulty,
          solved: 'false',
       }
+      
 
       axios.post('/api/puzzles', newPuzzle)
       // .then((res) => console.log(res.data))
@@ -45,14 +49,14 @@ export default class Add extends Component {
       .catch((err) => console.log(err.code))
    }
 
-   render(){
+   render() {
       return(
          <form className="add-component">
             <h2> Add Puzzle </h2>
             <input placeholder="Image URL" onChange={this.handleImgInput} />
             <input placeholder="Shape" onChange={this.handleShapeInput} />
             <input placeholder="Difficulty" onChange={this.handleDifficultyInput} />
-            <button onClick={this.addNewPuzzle}> Add </button>
+            <button className="button" onClick={this.addNewPuzzle}> Add </button>
          </form>
       )
    }

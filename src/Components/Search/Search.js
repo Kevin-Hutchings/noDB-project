@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import './Search.css'
 
 export default class Search extends Component {
    constructor(props){
@@ -28,7 +29,7 @@ export default class Search extends Component {
 
    render(){
       return(
-         <section>
+         <section className="search-section">
             <input 
                value={this.state.userInput}
                onChange={(e) => this.handleChange(e)}

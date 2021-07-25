@@ -26,17 +26,17 @@ export default class App extends Component {
     .catch((err) => console.log(err.code))
   }
 
-  updateAddPuzzle(puzzles){
+  updateAddPuzzle(puzzles) {
     this.setState({ puzzles })
   }
 
-  destroy(id){
+  destroy(id) {
     axios.delete(`/api/puzzles/${id}`)
     .then(({ data }) => this.setState({ puzzles: data }))
     .catch((err) => console.log(err.code))
   }
 
-  searchPuzzles(input){
+  searchPuzzles(input) {
     const { puzzles } = this.state;
 
     const filteredPuzzles = puzzles.filter((puzzle) => {
@@ -62,10 +62,16 @@ export default class App extends Component {
     return (
       <div>
         <Header reset={this.reset} searchPuzzles={this.searchPuzzles} />
-        <section className="app">
-          <Collection data={ puzzles } destroy={this.destroy} updateEdit={this.updateAddPuzzle} /> 
-          <Add updateAddPuzzle={this.updateAddPuzzle} />
-        </section>
+        <body>
+          <section className="app">
+            <Collection 
+              data={puzzles} 
+              destroy={this.destroy} 
+              updateEdit={this.updateAddPuzzle}
+            /> 
+            <Add updateAddPuzzle={this.updateAddPuzzle} />
+          </section>
+        </body>
       </div>
     )
   };

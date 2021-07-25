@@ -1,0 +1,45 @@
+.puzzle {
+   background-color: #858585;
+   box-shadow: inset 0px 0px 10px 5px #000000;
+   padding: 1%;
+   width: 18vw;
+   height: 40vh;
+   display: flex;
+   flex-flow: column wrap;
+   align-items: center;
+   justify-content: space-between;
+}
+
+.solved {
+   box-shadow: inset 0px 0px 10px 5px #6db3af;
+}
+
+.puzzleDisplay {
+   padding: 10px;
+   width: 75vw;
+   height: 90vh;
+   display: flex;
+   flex-flow: row wrap;
+   justify-content: space-around;
+}
+
+.puzzle-img {
+   height: 45%;
+}
+
+.puzzle-text {
+   line-height: 65%;
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+   justify-content: space-evenly;
+   height: 1%;
+}
+
+.edit-puzzle {
+   display: flex;
+   flex-flow: column nowrap;
+   height: 12vh;
+   width: 10vw;
+   justify-content: space-evenly;
+}

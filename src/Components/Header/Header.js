@@ -7,7 +7,6 @@ export default function Header({reset, searchPuzzles}) {
       <header className="header">
          <h1> Puzzle Collection </h1>
          <Search searchPuzzles={searchPuzzles} reset={reset}/>
-         <button className="reset-button" onClick={() => reset()}> Reset </button>
       </header>
    );
 }
