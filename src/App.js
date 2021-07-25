@@ -15,6 +15,7 @@ export default class App extends Component {
     };
 
     this.updateAddPuzzle = this.updateAddPuzzle.bind(this);
+    this.searchPuzzles = this.searchPuzzles.bind(this);
     this.destroy = this.destroy.bind(this);
     this.reset = this.reset.bind(this);
   }
@@ -35,6 +36,15 @@ export default class App extends Component {
     .catch((err) => console.log(err.code))
   }
 
+  searchPuzzles(input){
+    const { puzzles } = this.state;
+
+    const filteredPuzzles = puzzles.filter((puzzle) => {
+      return puzzle.shape.toLowerCase().includes(input.toLowerCase()) || puzzle.difficulty.toLowerCase().includes(input.toLowerCase())
+    });
+    this.setState({ puzzles: filteredPuzzles })
+  }
+
   reset(){
     axios.get('/api/puzzles')
     .then(({ data }) => this.setState({ puzzles: data }))
@@ -45,7 +55,7 @@ export default class App extends Component {
     const { puzzles } = this.state;
     return (
       <div>
-        <Header reset={this.reset} />
+        <Header reset={this.reset} searchPuzzles={this.searchPuzzles} />
         <section className="app">
           <Collection data={ puzzles } destroy={this.destroy} updateEdit={this.updateAddPuzzle} /> 
           <Add updateAddPuzzle={this.updateAddPuzzle} />

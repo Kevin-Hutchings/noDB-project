@@ -6,8 +6,8 @@ function getPuzzle(req, res){
 }
 
 function addPuzzle(req, res){
-   const { img, shape, difficulty } = req.body;
-   puzzles.push({ img, shape, difficulty })
+   const { id, img, shape, difficulty, solved } = req.body;
+   puzzles.push({ img, shape, difficulty, id, solved })
    res.status(200).json(puzzles)
 }
 
@@ -15,7 +15,7 @@ function editPuzzle(req, res){
    const { difficulty, solved } = req.body;
    const { id } = req.params;
 
-   const index = puzzles.findIndex((el) => el.id === +id);
+   const index = puzzles.findIndex((el) => el.id === id);
    puzzles[index].difficulty = difficulty;
    puzzles[index].solved = solved;
    res.status(200).json(puzzles)
@@ -23,7 +23,7 @@ function editPuzzle(req, res){
 
 function deletePuzzle(req, res){
    const { id } = req.params
-   const index = puzzles.findIndex((el) => el.id === +id)
+   const index = puzzles.findIndex((el) => el.id === id)
    puzzles.splice(index, 1);
    res.status(200).json(puzzles)
 }

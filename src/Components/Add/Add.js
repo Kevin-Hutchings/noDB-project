@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import axios from 'axios';
+import { v4 as uuidv4 } from 'uuid';
 
 export default class Add extends Component {
    constructor(props){
@@ -27,19 +28,19 @@ export default class Add extends Component {
    handleDifficultyInput(e){
       this.setState({difficulty: e.target.value})
    }
-      
-   
+   handleIdInput(e){
+      this.setState({id: e.target.value})
+   }
+
    addNewPuzzle = () => {
-      let id = 7;
       const { img, shape, difficulty } = this.state;
       const newPuzzle = { 
-         id,
+         id: uuidv4(),
          img,
          shape,
          difficulty,
+         solved: false,
       }
-
-      id++
 
       axios.post('/api/puzzles', newPuzzle)
       // .then((res) => console.log(res.data))

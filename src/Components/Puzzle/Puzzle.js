@@ -8,11 +8,13 @@ export default class Puzzle extends Component {
       this.state = {
          difficulty: '',
          solved: false,
+         input: '',
       }
 
       this.editPuzzleValue = this.editPuzzleValue.bind(this);
       this.handleDifficulty = this.handleDifficulty.bind(this);
       this.handleSolved = this.handleSolved.bind(this);
+      this.handleClear = this.handleClear.bind(this);
    }
    
    editPuzzleValue(id){
@@ -26,6 +28,8 @@ export default class Puzzle extends Component {
       .then((res) => this.props.updateEdit(res.data))
       // .then((res) => console.log(res.data))
       .catch((err) => console.log(err.code))
+
+      // this.handleClear()
    }
 
    handleDifficulty(e){
@@ -34,6 +38,13 @@ export default class Puzzle extends Component {
 
    handleSolved(e){
       this.setState({ solved: e.target.value })
+   }
+
+   handleClear(){
+      this.setState({ 
+         difficulty: '',
+         solved: ''
+      })
    }
 
    render(){
