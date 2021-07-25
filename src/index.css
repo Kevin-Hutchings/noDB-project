@@ -1,6 +1,6 @@
 body {
   margin: 0;
-  background-color: rgb(100, 100, 100);
+  background-color: #5a5e64;
 }
 
 .header {
@@ -27,26 +27,26 @@ body {
 }
 
 .puzzle-unsolved {
-  background-color: rgb(126, 126, 126);
+  background-color: #858585;
   box-shadow: inset 0px 0px 10px 5px #000000;
   padding: 1%;
-  width: 20vw;
+  width: 18vw;
   height: 40vh;
   display: flex;
   flex-flow: column wrap;
   align-items: center;
-  justify-content: space-around;
+  justify-content: space-between;
 }
 .puzzle-solved {
-  background-color: rgb(126, 126, 126);
-  box-shadow: inset 0px 0px 10px 5px #398a86;
+  background-color: #858585;
+  box-shadow: inset 0px 0px 10px 5px #6db3af;
   padding: 1%;
-  width: 20vw;
+  width: 18vw;
   height: 40vh;
   display: flex;
   flex-flow: column wrap;
   align-items: center;
-  justify-content: space-around;
+  justify-content: space-between;
 }
 
 .puzzleDisplay {
@@ -55,11 +55,41 @@ body {
   height: 90vh;
   display: flex;
   flex-flow: row wrap;
-  justify-content: space-evenly;
+  justify-content: space-around;
 }
 
 .puzzle-img {
   height: 45%;
+}
+
+.puzzle-text {
+  line-height: 65%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
+  height: 1%;
+}
+
+.edit-puzzle {
+  /* border: 1px solid black; */
+  /* padding: 1%; */
+  display: flex;
+  flex-flow: column wrap;
+  height: 12vh;
+  width: 10vw;
+  justify-content: space-evenly;
+}
+
+.button {
+  /* border: 1px solid black; */
+  background-color: #97accc;
+}
+
+.button:active {
+  border: none;
+  background-color: #398a86;
+  color: white;
 }
 
 .add-component {

@@ -44,13 +44,16 @@ export default class Puzzle extends Component {
          return(
             <div className={puzzle.solved.includes('true') ? 'puzzle-solved' : 'puzzle-unsolved'}>
                <img className="puzzle-img" src={puzzle.img} alt='Puzzle' />
-               <h3 className="puzzle-text"> Shape: {puzzle.shape} Difficulty: {puzzle.difficulty}</h3>
-               <input placeholder="Edit Difficulty" onChange={this.handleDifficulty} />
-               <input placeholder="Solved? true or false" onChange={this.handleSolved} />
-               <div className="buttons">
-                  <button onClick={() => this.editPuzzleValue(puzzle.id)}> Edit </button> 
-                  <button onClick={() => destroy(puzzle.id)}> Destroy </button>
-               </div>
+               <section className="puzzle-text">
+                  <h3> Shape: {puzzle.shape} </h3>
+                  <h3> Difficulty: {puzzle.difficulty} </h3>
+               </section>
+               <section className="edit-puzzle">
+                  <input className="input" placeholder="Edit Difficulty" onChange={this.handleDifficulty} />
+                  <input className="input" placeholder="Solved? true or false" onChange={this.handleSolved} />
+                  <button className="button" onClick={() => this.editPuzzleValue(puzzle.id)}> Edit </button> 
+                  <button className="button" onClick={() => destroy(puzzle.id)}> Destroy </button>
+               </section>
             </div>
          )
       });

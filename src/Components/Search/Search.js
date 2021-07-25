@@ -34,8 +34,8 @@ export default class Search extends Component {
                onChange={(e) => this.handleChange(e)}
                placeholder="Search"
             />
-            <button onClick={this.handleClick}> Search </button>
-            <button onClick={this.handleClear}> Clear </button>
+            <button className="button" onClick={this.handleClick}> Search </button>
+            <button className="button" onClick={this.handleClear}> Clear </button>
          </section>
       )
    }
