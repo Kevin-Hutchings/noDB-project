@@ -1,0 +1,10 @@
+.stats {
+   background-color: #858585;
+   box-shadow: inset 0px 0px 10px 5px #6d7db3;
+   width: 15vw;
+   height: 30vh;
+   display: flex;
+   flex-flow: column nowrap;
+   align-items: center;
+   justify-content: space-around;
+}

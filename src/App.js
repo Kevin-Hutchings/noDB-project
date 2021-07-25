@@ -5,6 +5,7 @@ import './index.css'
 import Collection from "./Components/Collection/Collection";
 import Header from "./Components/Header/Header";
 import Add from './Components/Add/Add';
+import Stats from "./Components/Stats/Stats";
 
 export default class App extends Component {
   constructor() {
@@ -69,7 +70,10 @@ export default class App extends Component {
               destroy={this.destroy} 
               updateEdit={this.updateAddPuzzle}
             /> 
-            <Add updateAddPuzzle={this.updateAddPuzzle} />
+            <div className='side-bar'>
+              <Add updateAddPuzzle={this.updateAddPuzzle} />
+              <Stats data={puzzles} />
+            </div>
           </section>
         </body>
       </div>

@@ -1,13 +1,11 @@
 .add-component {
    background-color: #858585;
-   box-shadow: inset 0px 0px 10px 5px #000000;
+   box-shadow: inset 0px 0px 10px 5px #6d7db3;
    width: 20vw;
    height: 40vh;
    display: flex;
    flex-flow: column wrap;
    align-items: center;
    justify-content: space-evenly;
-   position: sticky;
-   right: 2.5%;
-   top: 35%;
+   text-decoration: underline;
 }
