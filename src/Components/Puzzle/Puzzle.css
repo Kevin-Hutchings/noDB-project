@@ -12,7 +12,7 @@
 }
 
 .solved {
-   box-shadow: inset 0px 0px 10px 5px #6db3af;
+   box-shadow: inset 0px 0px 10px 5px #00a2ff;
 }
 
 .puzzleDisplay {
@@ -43,4 +43,22 @@
    height: 12vh;
    width: 10vw;
    justify-content: space-evenly;
+}
+
+.input {
+   background-color: transparent;
+   border: none;
+   color: #858585;
+   text-align: center;
+}
+
+.input:hover {
+   background: white;
+   color: black;
+   transition-duration: 750ms;
+}
+
+::placeholder {
+   color: black;
+   text-align: center;
 }

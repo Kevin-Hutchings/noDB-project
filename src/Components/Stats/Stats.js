@@ -17,9 +17,11 @@ export default function Stats ({ data }) {
    return(
       <div className='stats'>
          <h1> Puzzle Stats </h1>
-         <h2> Total: {totalPuzzles} </h2>
-         <h2> Solved: {solvedPuzzles} </h2>
-         <h2> Un-Solved: {unsolvedPuzzles} </h2>
+         <ul>
+            <h2> Solved: {solvedPuzzles} </h2>
+            <h2> Un-Solved: {unsolvedPuzzles} </h2>
+            <h2> Total: {totalPuzzles} </h2>
+         </ul>
       </div>
    )
 }

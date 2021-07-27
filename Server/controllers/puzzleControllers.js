@@ -19,7 +19,7 @@ function editPuzzle(req, res){
 
    if(puzzles[index].difficulty !== difficulty && difficulty !== ''){
       [...puzzles, puzzles[index].difficulty = difficulty]
-   } else if(puzzles[index].solved !== solved){
+   } else if(puzzles[index].solved !== solved && solved !== ''){
       [...puzzles, puzzles[index].solved = solved]
    }
 

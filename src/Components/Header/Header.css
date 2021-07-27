@@ -1,5 +1,5 @@
 .header {
-   width: 75vw;
+   width: 85vw;
    display: flex;
    flex-direction: row;
    justify-content: space-around;
@@ -7,4 +7,5 @@
    position: relative;
    left: 2%;
    padding-top: 10px;
+   font-family: 'Courier New', Courier, monospace;
 }

@@ -8,7 +8,7 @@ export default class Puzzle extends Component {
 
       this.state = {
          difficulty: '',
-         solved: ''
+         solved: '',
       };
 
       this.editPuzzleValue = this.editPuzzleValue.bind(this);
@@ -24,7 +24,6 @@ export default class Puzzle extends Component {
          solved,
       }
       
-
       axios.put(`/api/puzzles/${id}`, editedPuzzle)
       .then((res) => this.props.updateEdit(res.data))
       // .then((res) => console.log(res.data))
@@ -49,16 +48,17 @@ export default class Puzzle extends Component {
 
    render() {
       const { data, destroy } = this.props;
-      const mappedPuzzles = data.map((puzzle) => {
+
+      const mappedPuzzles = data.map((puzzle, index) => {
          return(
-            <div className={puzzle.solved === 'true' ? `${'puzzle'} + ${'solved'}` : 'puzzle'}>
+            <div key={index} className={puzzle.solved === 'true' ? `${'puzzle'} + ${'solved'}` : 'puzzle'}>
                <img className="puzzle-img" src={puzzle.img} alt='Puzzle' />
                <section className="puzzle-text">
                   <h3> Shape: {puzzle.shape} </h3>
                   <h3> Difficulty: {puzzle.difficulty} </h3>
                </section>
                <section className="edit-puzzle">
-                  <input 
+                  <input
                      className="input" 
                      placeholder="Edit Difficulty"
                      value={this.state.difficulty}

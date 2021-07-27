@@ -11,6 +11,7 @@ export default class Add extends Component {
          img: '',
          shape: '',
          difficulty: '',
+         userInput: ''
       }
 
       this.handleImgInput = this.handleImgInput.bind(this);
@@ -42,20 +43,27 @@ export default class Add extends Component {
          solved: 'false',
       }
       
-
       axios.post('/api/puzzles', newPuzzle)
       // .then((res) => console.log(res.data))
       .then((res) => this.props.updateAddPuzzle(res.data))
       .catch((err) => console.log(err.code))
+
+      this.setState({
+         img: '',
+         shape: '',
+         difficulty: '',
+      });
    }
 
    render() {
+      const { img, shape, difficulty } = this.state;
+
       return(
          <form className="add-component">
             <h2> Add Puzzle </h2>
-            <input placeholder="Image URL" onChange={this.handleImgInput} />
-            <input placeholder="Shape" onChange={this.handleShapeInput} />
-            <input placeholder="Difficulty" onChange={this.handleDifficultyInput} />
+            <input placeholder="Image URL" onChange={this.handleImgInput} value={img} />
+            <input placeholder="Shape" onChange={this.handleShapeInput} value={shape} />
+            <input placeholder="Difficulty" onChange={this.handleDifficultyInput} value={difficulty} />
             <button className="button" onClick={this.addNewPuzzle}> Add </button>
          </form>
       )
