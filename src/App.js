@@ -24,7 +24,7 @@ export default class App extends Component {
   componentDidMount() {
     axios.get('/api/puzzles')
     .then(({ data }) => this.setState({ puzzles: data }))
-    .catch((err) => console.log(err.code))
+    .catch((err) => console.log(err))
   }
 
   updateAddPuzzle(puzzles) {
@@ -34,7 +34,7 @@ export default class App extends Component {
   destroy(id) {
     axios.delete(`/api/puzzles/${id}`)
     .then(({ data }) => this.setState({ puzzles: data }))
-    .catch((err) => console.log(err.code))
+    .catch((err) => console.log(err))
   }
 
   searchPuzzles(input) {
@@ -55,7 +55,7 @@ export default class App extends Component {
   reset(){
     axios.get('/api/puzzles')
     .then(({ data }) => this.setState({ puzzles: data }))
-    .catch((err) => console.log(err.code))
+    .catch((err) => console.log(err))
   }
 
   render() {

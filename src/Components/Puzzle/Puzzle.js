@@ -26,8 +26,7 @@ export default class Puzzle extends Component {
       
       axios.put(`/api/puzzles/${id}`, editedPuzzle)
       .then((res) => this.props.updateEdit(res.data))
-      // .then((res) => console.log(res.data))
-      .catch((err) => console.log(err.code))
+      .catch((err) => console.log(err))
    }
 
    handleDifficulty(e) {

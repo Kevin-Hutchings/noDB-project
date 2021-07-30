@@ -44,9 +44,8 @@ export default class Add extends Component {
       }
       
       axios.post('/api/puzzles', newPuzzle)
-      // .then((res) => console.log(res.data))
       .then((res) => this.props.updateAddPuzzle(res.data))
-      .catch((err) => console.log(err.code))
+      .catch((err) => console.log(err))
 
       this.setState({
          img: '',
